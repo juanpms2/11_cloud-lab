@@ -2,3 +2,5 @@ node_modules
 npm-debug.logdocke4r
 pasos.md 
 terraform
+.gitignore
+.dockerignore
