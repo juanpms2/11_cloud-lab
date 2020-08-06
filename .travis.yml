@@ -1,0 +1,4 @@
+services:
+  - docker
+script:
+  - docker build --rm -p 8888:8888 --restart=always -t mylabcloud .
