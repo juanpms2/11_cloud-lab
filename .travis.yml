@@ -2,8 +2,8 @@ sudo: required
 services:
   - docker
 script:
-  - docker build -t mylabcloud .
+  - docker build -t labcloud .
 after_success:
   - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-  - docker tag mylabcloud $DOCKER_USER/masterlemoncode_cloud
+  - docker tag labcloud $DOCKER_USER/masterlemoncode_cloud
   - docker push $DOCKER_USER/masterlemoncode_cloud
