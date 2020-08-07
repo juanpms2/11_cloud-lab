@@ -1,5 +1,8 @@
 node_modules
+.git
+.gitignore
+.travis.yml
+README.md
 npm-debug.logdocke4r
 pasos.md 
 terraform
-terraform.tfstate
