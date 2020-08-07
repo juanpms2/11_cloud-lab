@@ -7,3 +7,4 @@ after_success:
   - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
   - docker tag labcloud $DOCKER_USER/masterlemoncode_cloud
   - docker push $DOCKER_USER/masterlemoncode_cloud
+  - ssh -i $KEY $USER@$HOST \ "sudo yum install docker -y && service docker start && sudo docker run --rm -d -p 80:8888 jpabloms2/masterlab"
