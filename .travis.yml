@@ -7,6 +7,4 @@ after_success:
   - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
   - docker tag labcloud $DOCKER_USER/masterlemoncode_cloud
   - docker push $DOCKER_USER/masterlemoncode_cloud
-deploy:
-  provider: script
-  script: bash deploy.sh
+  - ssh -i $KEY $USER@$HOST
