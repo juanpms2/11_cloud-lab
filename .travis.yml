@@ -1,21 +1,23 @@
 sudo: required
 services:
-  - docker
+- docker
 script:
-  - docker build -t labcloud .
+- docker build -t labcloud .
 after_success:
-  - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-  - docker tag labcloud $DOCKER_USER/masterlemoncode_cloud
-  - docker push $DOCKER_USER/masterlemoncode_cloud
+- docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+- docker tag labcloud $DOCKER_USER/masterlemoncode_cloud
+- docker push $DOCKER_USER/masterlemoncode_cloud
 before_deploy:
-  - openssl aes-256-cbc -in masterlab.pem.enc -out /tmp/masterlab.pem -d
-  - eval "$(ssh-agent -s)"
-  - chmod 600 /tmp/masterlab.pem
-  - ssh-add /tmp/masterlab.pem
-
+  - openssl aes-256-cbc -K $encrypted_6a109d58e6dc_key -iv $encrypted_6a109d58e6dc_iv
+  -in masterlab.pem.enc -out masterlab.pem -d
+- eval "$(ssh-agent -s)"
+- chmod 600 /tmp/masterlab.pem
+- ssh-add /tmp/masterlab.pem
 deploy:
   provider: script
   skip_cleanup: true
-  script: ssh -i ./tmp/masterlab.pem ec2-user@ec2-63-32-112-235.eu-west-1.compute.amazonaws.com 'bash ./deploy.sh'
+  script: ssh -i ./tmp/masterlab.pem ec2-user@ec2-63-32-112-235.eu-west-1.compute.amazonaws.com
+    'bash ./deploy.sh'
   on:
     branch: master
+
