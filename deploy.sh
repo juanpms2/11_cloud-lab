@@ -1,5 +1,5 @@
 #!/bin/bash
-yes
+
 echo "Kill container..."
 sudo docker kill masterlab
 echo "run new container"
