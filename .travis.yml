@@ -8,7 +8,7 @@ after_success:
   - docker tag labcloud $DOCKER_USER/masterlemoncode_cloud
   - docker push $DOCKER_USER/masterlemoncode_cloud
 before_deploy:
-  - openssl aes-256-cbc -K $encrypted_6a109d58e6dc_key -iv $encrypted_6a109d58e6dc_iv -in masterlab.pem.enc -out masterlab.pem -d
+  - openssl aes-256-cbc -K $encrypted_6a109d58e6dc_key -iv $encrypted_6a109d58e6dc_iv -in masterlab.pem.enc -out /tmp/masterlab.pem -d
   - eval "$(ssh-agent -s)"
   - chmod 600 /tmp/masterlab.pem
   - ssh-add /tmp/masterlab.pem
