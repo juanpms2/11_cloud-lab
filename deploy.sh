@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 echo "Kill container..."
 sudo docker kill masterlab
