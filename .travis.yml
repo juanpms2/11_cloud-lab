@@ -7,10 +7,7 @@ after_success:
   - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
   - docker tag labcloud $DOCKER_USER/masterlemoncode_cloud
   - docker push $DOCKER_USER/masterlemoncode_cloud
-before_install:
-  - openssl aes-256-cbc -K $encrypted_db2095f63ba3_key -iv $encrypted_db2095f63ba3_iv
-    -in deploy_rsa.enc -out deploy_rsa -d
 deploy:
   provider: script
   skip_cleanup: true
-  script: ssh -i $KEY ec2-user@63.32.112.235 'bash ./deploy.sh'
+  script: ssh -i $KEY ec2-user@$HOST 'bash ./deploy.sh'
