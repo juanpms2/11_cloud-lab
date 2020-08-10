@@ -16,7 +16,7 @@ deploy:
   provider: script
   skip_cleanup: true
   script:
-    ssh -i ./tmp/masterlab.pem ec2-user@ec2-63-32-112-235.eu-west-1.compute.amazonaws.com
+    ssh -i /tmp/masterlab.pem ec2-user@ec2-63-32-112-235.eu-west-1.compute.amazonaws.com
     'bash ./deploy.sh'
   on:
     branch: master
