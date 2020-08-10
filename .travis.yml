@@ -13,10 +13,10 @@ before_deploy:
   - chmod 600 /tmp/deploy_rsa
   - ssh-add /tmp/deploy_rsa
   - ssh-keyscan ec2-63-32-112-235.eu-west-1.compute.amazonaws.com > /tmp/ec2key
-  - ssh-keygen -l -f ec2key
+
 deploy:
   provider: script
   skip_cleanup: true
-  script: ssh -t ec2-user@ec2-63-32-112-235.eu-west-1.compute.amazonaws.com 'bash ./deploy.sh'
+  script: ssh -i /tmp/ec2key ec2-user@ec2-63-32-112-235.eu-west-1.compute.amazonaws.com 'bash ./deploy.sh'
   on:
     branch: master
