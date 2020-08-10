@@ -6,7 +6,7 @@ var app = express();
 
 app.get("/", function (req, res) {
 	console.log(req);
-	res.send("Hello world!!! Docker + AWS + travis + terraform deployed");
+	res.send("Hello world!!! Docker + AWS + travis + terraform deployedddd");
 });
 
 app.get("/:name", function (req, res) {
