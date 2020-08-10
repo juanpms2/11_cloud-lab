@@ -15,6 +15,6 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: ssh ec2-user@ec2-63-32-112-235.eu-west-1.compute.amazonaws.com 'bash ./deploy.sh'
+  script: ssh -o StrictHostKeyChecking=no ec2-user@ec2-63-32-112-235.eu-west-1.compute.amazonaws.com 'bash ./deploy.sh'
   on:
     branch: master
