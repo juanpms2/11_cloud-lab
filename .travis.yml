@@ -10,9 +10,7 @@ after_success:
 deploy:
   provider: script
   skip_cleanup: true
-  script:
-    ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /tmp/masterlab.pem
-    ec2-user@54.154.60.189 'bash ./deploy.sh'
+  script: ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /tmp/masterlab.pem ec2-user@54.154.60.189 'bash ./deploy.sh'
   on:
     branch: master
 before_install:
