@@ -16,7 +16,8 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: ssh -i /tmp/masterlab.pem ec2-user@63.32.112.235
-    'bash ./deploy.sh'
+  script:
+    ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /tmp/masterlab.pem
+    ec2-user@54.154.60.189 'bash ./deploy.sh'
   on:
     branch: master

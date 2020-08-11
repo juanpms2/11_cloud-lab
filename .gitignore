@@ -2,3 +2,4 @@ node_modules
 pasos.md
 terraform
 terraform.tfstate
+masterlab.pem
