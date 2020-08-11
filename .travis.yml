@@ -12,7 +12,6 @@ deploy:
   skip_cleanup: true
   script:
     - ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /tmp/masterlab.pem ec2-user@54.154.60.189
-    - echo "Kill container..."
   on:
     branch: master
 before_install:
