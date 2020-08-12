@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo yum update
 echo "Kill container..."
 docker kill masterlab
 echo "delete docker image"
